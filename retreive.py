@@ -8,7 +8,11 @@ from time import sleep
 if __name__ == '__main__':
     # print()
     while True:
-        data = get_response()
-        for coin in data:
-            write_coin(coin)
-        sleep(1)
+        try:
+            data = get_response()
+            for coin in data:
+                write_coin(coin)
+            sleep(1)
+        except:
+            print("Connection error, retrying")
+            sleep(1)
